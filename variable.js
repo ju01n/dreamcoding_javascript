@@ -99,11 +99,22 @@ const gSymbol2 = Symbol.for('id');
 console.log(gSymbol1 === gSymbol2); //true
 console.log(`value: ${symbol1.description}, type: ${typeof gSymbol1}`);
 
+//object, real-life object, data structure
+const jeongin = {name: 'jeongin', age:30 }; //const로 지정 해 다른 변수 재할당 불가능
+jeongin.age = 21;
+console.log();
+
 //5. Dynamic typing: dynamically typed language
 //자바스크립트는 프로그램이 동작할 때 할당된 값에 따라서 타입이 변경 될 수 있음 
 let text = 'hello';
-console.log(`value: ${text}, type:${typeof text}`);
+console.log(text.charAt(0)); //string으로 이해하기 때문에 'h'가져옴
+console.log(`value: ${text}, type:${typeof text}`); //type - text
 text = 1;
 console.log(`value: ${text}, type:${typeof text}`); //type이 숫자로 변경
 text = '7' + 5;
-console.log(`value: ${text}, type:${typeof text}`); 
+console.log(`value: ${text}, type:${typeof text}`); //문자열에 +가 있으니까 string으로 인식
+text = '8' / '2';
+console.log(`value: ${text}, type: ${typeof text}`); //type - number로 변환되어서 나누기가 실행됨 
+console.log(text.charAt(0)); // error (중간에 타입을 숫자로 바뀌어서)
+//자바스크립트에서 런타임에서 타입이 정해지기 때문에 에러가 뜰 가능성..  그래서 타입스크립트가 나옴 ! 
+
