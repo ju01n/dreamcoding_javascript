@@ -4,7 +4,7 @@
 
 'use strict';
 
-//2. Variable
+//2. Variable, rw(read/write)
 //let (Added in ES6)
 let globalName = 'global name';
 //어느곳에서나 접근 가능 
@@ -25,17 +25,25 @@ console.log(globalName);
 //var hoisting (move, declaration from bottom to top)
 //block scope이 없음 -> block을 철저히 무시..
 
-//3. Constants -> 한번 할당하면 값이 절대 바뀌지 않음
-//favor immutable data type always for a few reasons:
-//-security 
-//-thread safety
-//-reduce human mistakes
+//3. Constants, r(read only) -> 한번 할당하면 값이 절대 바뀌지 않음, 
+//use const whenever possible.
+//only use let if variable needs to change.
 const daysInWeek = 7;
 const maxNumber = 5;
 
+//Note !! 
+//Immutable data types: primitive types, frozen objects (i.e. object, freeze())
+//Mutable data types: all objects by default are mutable in JS
+//favor immutable data type always for a few reasons:
+// - security
+// - thread safety
+// - reduce human mistakes 
+
+
+
 //4. Variable types
-//primitive, single item:number, string, boolean, null, undefined, symbol
-//object, box container(single item을 묶어서 한 단위로 관리)
+//primitive(값 자체가 메모리에 저장), single item:number, string, boolean, null, undefined, symbol
+//object(object가 가리키는 reference가 저장), box container(single item을 묶어서 한 단위로 관리)
 //function, first-class function -> function도 다른 데이터타입처럼 할당 가능
 
 const count = 17; //integer
@@ -104,10 +112,13 @@ const jeongin = {name: 'jeongin', age:30 }; //const로 지정 해 다른 변수 
 jeongin.age = 21;
 console.log();
 
+
+
+
 //5. Dynamic typing: dynamically typed language
 //자바스크립트는 프로그램이 동작할 때 할당된 값에 따라서 타입이 변경 될 수 있음 
 let text = 'hello';
-console.log(text.charAt(0)); //string으로 이해하기 때문에 'h'가져옴
+console.log(text.charAt(0)); //string으로 이해하기 때문에 'h'출력
 console.log(`value: ${text}, type:${typeof text}`); //type - text
 text = 1;
 console.log(`value: ${text}, type:${typeof text}`); //type이 숫자로 변경
@@ -117,4 +128,5 @@ text = '8' / '2';
 console.log(`value: ${text}, type: ${typeof text}`); //type - number로 변환되어서 나누기가 실행됨 
 console.log(text.charAt(0)); // error (중간에 타입을 숫자로 바뀌어서)
 //자바스크립트에서 런타임에서 타입이 정해지기 때문에 에러가 뜰 가능성..  그래서 타입스크립트가 나옴 ! 
+//타입스크립트는 브라우저가 이해할 수 있는 자바스크립트로 바꿔야한다. (babel)
 
