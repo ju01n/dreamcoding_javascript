@@ -157,7 +157,7 @@ do{
 
 //먼저 실행하고 싶으면 do while, 조건문이 맞을 때만 실행하고 싶으면 while
 
-//for loop, for(begin; condition; step) : begin한번만 호출하고 실행하기 전에 컨디션 검사, 블럭 검사 후 step 실행 --> condition 안맞을 때 까지 검사 
+//for loop, for(begin; condition; step) : begin한번만 호출하고 블럭 실행하기 전에 컨디션 검사, 블럭 검사 후 step 실행 --> condition 안맞을 때 까지 검사 
 for (i = 3; i > 0; i--){
   console.log(`for: ${i}`);
 }
@@ -169,12 +169,26 @@ for (let i = 3; i > 0; i = i - 2){
 
 //nested loops
 //O(n^2) -> cpu에 좋지 않음 
-for (let i = 0; i < 10; i++ ){
+for (let i = 0; i < 10; i++ ){ //0~9 
   for (let j = 0; j < 10; j++){
     console.log(`i: ${i}, j:${j}`);
   }
 }
 
-//break, continue
+//break : loop완전히 끝냄
+//continue : 지금것만 skip하고 다음으로 넘어감
+//Q1. iterate from 0 to 10 and print only even numbers (use continue)
+for (let i = 0; i < 11; i++){
+  if(i % 2 === 0){
+    continue;
+  }
+  console.log(`q1. ${i}`);
+}
 
-
+//Q2. iterate from 0 to 10 and print numbers until reaching 8 (use break)
+for (let i = 0; i < 11; i++){
+  if (i > 8) {
+  break;
+  }
+  console.log(`q2. ${i}`);
+}
